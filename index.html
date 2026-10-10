@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=6, user-scalable=yes">
+<title>Putoelquelea</title>
+<link rel="stylesheet" href="ytengoquesalir.css">
+</head>
+<body>
+
+<h1>LaMAO</h1>
+<p class="sub">Ponga el gif, imagen, documento, texto o url dentro del emoji, texto o letra</p>
+
+<nav>
+  <button data-tab="P" class="active">Empaquetar</button>
+  <button data-tab="U">Extraer</button>
+</nav>
+
+<!-- ============================== EMPAQUETAR ============================== -->
+<section id="P" class="active">
+  <div id="pack-items"></div>
+  <div class="row">
+    <button class="action alt" id="pack-add" style="width:100%">+ Añadir otro +</button>
+  </div>
+
+ <div class="row">
+  <label>Cosa Base</label>
+  <input accept=".png, .jpg"type="text" id="pack-emoji" value="Hola" maxlength="100" >
+  
+</div>
+  <div class="row">
+    <label>Cifrado</label>
+    <select id="pack-cifrado">
+      <option value="none">Ninguno</option>
+      <option value="antes">Solo datos</option>
+      <option value="despues">Solo el payload</option>
+      <option value="ambos">Ambos</option>
+    </select>
+  </div>
+  <div class="row" id="pack-row-password" style="display:none">
+    <label>Contraseña</label>
+    <input type="password" id="pack-password" placeholder="Contraseña de cifrado..." autocomplete="new-password">
+  </div>
+  <div class="row" id="pack-row-iter" style="display:none">
+    <label>Iteraciones</label>
+    <input type="number" id="pack-iter" value="5000" min="100" max="100000" style="max-width:140px">
+  </div>
+
+  <hr>
+
+  <h3>Relleno (opcional)</h3>
+  <div class="row">
+    <label>Activar</label>
+    <input type="checkbox" id="pad-on">
+  </div>
+  <div class="row">
+    <label>Posición</label>
+    <select id="pad-pos">
+      <option value="antes">Antes</option>
+      <option value="despues">Después</option>
+      <option value="ambos" selected>Ambos</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>Porcentaje</label>
+    <input type="number" id="pad-pct" value="10" min="0" max="500" step="1" style="max-width:140px">
+    <span class="hint">% del tamaño original por lado</span>
+  </div>
+
+  <hr>
+
+  <h3>Modo de transporte</h3>
+  <div class="row">
+    <label>% Codepoints</label>
+    <input type="number" id="pack-pct-cp" value="100" min="0" max="100" step="1" style="max-width:140px">
+    <span class="hint">% del payload que va en codepoints VS (el resto va crudo)</span>
+  </div>
+  <div class="row">
+    <label>Modo crudo</label>
+    <select id="pack-crudo-modo">
+      <option value="latin1">Latin-1 (String.fromCharCode)</option>
+      <option value="bytes">Bytes fuera del string</option>
+    </select>
+  </div>
+
+  <div class="row"><button class="action big" id="pack-go">Empaquetar</button></div>
+  <div class="emoji-preview" id="pack-prev">—</div>
+  <div class="btn-row">
+    <button class="action big" id="pack-copy" disabled>📋 Copiar</button>
+  </div>
+  <div class="btn-row">
+    <button class="action alt" id="pack-copy-parts" disabled>📋 Copiar por partes</button>
+    <button class="action alt" id="pack-select" disabled>👆 Seleccionar todo</button>
+  </div>
+  <div class="out" id="pack-out">Esperando...</div>
+  <div class="stats" id="pack-stats"></div>
+
+  <div class="out" id="pack-bytes-out" style="display:none"></div>
+  <div class="btn-row" id="pack-bytes-dl-row" style="display:none">
+    <button class="action alt" id="pack-bytes-dl">💾 Descargar bytes crudos</button>
+  </div>
+</section>
+
+<!-- ============================== EXTRAER ============================== -->
+<section id="U">
+  <div class="row">
+    <label>Emoji</label>
+    <textarea id="unpack-str" placeholder="Pega aquí" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
+  </div>
+  <div class="row">
+    <label>Contraseña</label>
+    <input type="password" id="unpack-password" placeholder="Solo si el payload está cifrado..." autocomplete="current-password">
+  </div>
+
+  <hr>
+
+  <h3>Modo de transporte</h3>
+  <div class="row">
+    <label>% Codepoints</label>
+    <input type="number" id="unpack-pct-cp" value="100" min="0" max="100" step="1" style="max-width:140px">
+    <span class="hint">Mismo valor que usaste al empaquetar</span>
+  </div>
+  <div class="row">
+    <label>Modo crudo</label>
+    <select id="unpack-crudo-modo">
+      <option value="latin1">Latin-1 (String.fromCharCode)</option>
+      <option value="bytes">Bytes fuera del string</option>
+    </select>
+  </div>
+  <div class="row" id="unpack-row-bytes" style="display:none">
+    <label>Bytes crudos</label>
+    <textarea id="unpack-bytes" placeholder="Pega aquí los bytes crudos que iban fuera del string..." autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
+  </div>
+
+  <div class="btn-row">
+    <button class="action big" id="unpack-go">Extraer</button>
+  </div>
+  <div class="out" id="unpack-out">Esperando</div>
+  <div class="stats" id="unpack-stats"></div>
+  <div id="unpack-items"></div>
+</section>
+
+<script src="emocion.js"></script>
+</body>
+</html>
