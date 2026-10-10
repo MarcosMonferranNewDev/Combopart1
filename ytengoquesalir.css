@@ -552,3 +552,55 @@ hr {
   border-bottom: 2px solid #f0e8d0;
   margin: 1.2rem 0;
 }
+
+.apoyo {
+  margin: 2rem auto 1rem;
+  padding: 1.2rem;
+  max-width: 520px;
+  text-align: center;
+  background: var(--pack-bg);
+  border: 3px solid;
+  border-color: var(--pack-border-l) var(--pack-border-d) var(--pack-border-d) var(--pack-border-l);
+  box-shadow: var(--btn-shadow);
+  border-radius: var(--radius);
+}
+
+.apoyo-titulo {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.apoyo-texto {
+  font-size: 0.85rem;
+  color: var(--sub);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.apoyo-linea {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.apoyo-label {
+  color: var(--sub);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.apoyo-valor {
+  color: var(--fg);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.02em;
+  user-select: text;
+  -webkit-user-select: text;
+}
