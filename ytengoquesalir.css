@@ -1,0 +1,554 @@
+/* ============================================================
+   EmojiForge · estética retro real (carcasa + terminal)
+   ============================================================ */
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: rgba(0,0,0,0.2); }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: 'Courier New', 'Courier', 'Nimbus Mono PS', monospace;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.2rem;
+  background: #c8c0a8;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.025) 0px,
+      rgba(0,0,0,0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.02) 0px,
+      rgba(0,0,0,0.02) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  color: #1c1c1c;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+h1 {
+  font-family: 'Courier New', monospace;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+  color: #2a2a2a;
+  text-shadow: 1px 1px 0 #e8e0c8;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: #2a2a2a;
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  text-shadow: 1px 1px 0 #e8e0c8;
+}
+
+.sub {
+  color: #4a4a44;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.hint {
+  font-size: 0.82rem;
+  color: #4a4a44;
+  font-family: 'Courier New', monospace;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+nav button {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.7rem 0.9rem;
+  background: #d8d0b8;
+  color: #1c1c1c;
+  border: 2px solid #8a8070;
+  border-top-color: #f0e8d0;
+  border-left-color: #f0e8d0;
+  border-right-color: #605850;
+  border-bottom-color: #605850;
+  cursor: pointer;
+  transition: none;
+}
+
+nav button:hover {
+  background: #e0d8c0;
+  color: #1c1c1c;
+  font-size: 0.95rem;
+}
+
+nav button:active {
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  background: #c0b8a0;
+  transform: translateY(1px);
+}
+
+nav button.active {
+  background: #b8b0a0;
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  color: #000;
+}
+
+nav button.active:hover {
+  background: #b8b0a0;
+  color: #000;
+  border-color: #605850 #f0e8d0 #f0e8d0 #605850;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   SECCIONES
+   ============================================================ */
+
+section { display: none; }
+section.active { display: block; }
+
+/* ============================================================
+   FILAS
+   ============================================================ */
+
+.row {
+  margin-bottom: 0.7rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #a89c84;
+}
+
+.row label {
+  min-width: 110px;
+  font-size: 0.9rem;
+  color: #2a2a2a;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.row input[type="text"],
+.row input[type="password"],
+.row input[type="number"],
+.row select,
+.row textarea {
+  background: #e8e0c8;
+  border: 2px solid #8a8070;
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  color: #1c1c1c;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  padding: 0.4rem 0.5rem;
+  transition: none;
+}
+
+.row input[type="text"]:hover,
+.row input[type="password"]:hover,
+.row input[type="number"]:hover,
+.row select:hover,
+.row textarea:hover {
+  border-color: #605850 #f0e8d0 #f0e8d0 #605850;
+  background-color: #f0e8d0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.row input:focus,
+.row select:focus,
+.row textarea:focus {
+  outline: 2px solid #6a5a3a;
+  outline-offset: 1px;
+}
+
+/* ============================================================
+   BOTÓN DE ARCHIVO (label que envuelve al input real)
+   ============================================================ */
+
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  background: #d8d0b8;
+  color: #1c1c1c;
+  border: 2px solid #8a8070;
+  border-top-color: #f0e8d0;
+  border-left-color: #f0e8d0;
+  border-right-color: #605850;
+  border-bottom-color: #605850;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  user-select: none;
+  transition: none;
+}
+
+.file-btn:hover { background: #e0d8c0; }
+
+.file-btn:active {
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  background: #c0b8a0;
+  transform: translateY(1px);
+}
+
+.file-btn input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.file-btn span { pointer-events: none; }
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+
+button.action {
+  background: #d8d0b8;
+  color: #1c1c1c;
+  border: 2px solid #8a8070;
+  border-top-color: #f0e8d0;
+  border-left-color: #f0e8d0;
+  border-right-color: #605850;
+  border-bottom-color: #605850;
+  padding: 0.6rem 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 44px;
+  transition: none;
+}
+
+button.action:hover { background: #e0d8c0; }
+
+button.action:active {
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  background: #c0b8a0;
+  transform: translateY(1px);
+}
+
+button.action:disabled { opacity: 0.5; cursor: not-allowed; }
+button.action.big { width: 100%; }
+button.action.alt { background: #d0c8b0; }
+
+.btn-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-row button { flex: 1; min-width: 130px; transition: none; }
+
+/* ============================================================
+   SALIDAS
+   ============================================================ */
+
+.out {
+  margin-top: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  background: #e8e0c8;
+  border: 2px solid #8a8070;
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  font-size: 0.92rem;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  word-break: break-word;
+  color: #2a2a2a;
+}
+
+.out:hover { background-color: #e8e0c8; }
+.out.ok { background: #b8d8b0; color: #1a3a10; border-color: #6a9a58 #d8f0c8 #d8f0c8 #6a9a58; }
+.out.err { background: #d8b0a8; color: #5a1810; border-color: #a85848 #f0c8c0 #f0c8c0 #a85848; }
+.out.info { background: #c8c8d8; color: #1a1a3a; border-color: #7878a0 #e0e0f0 #e0e0f0 #7878a0; }
+.out b { color: inherit; font-weight: 700; }
+
+/* ============================================================
+   PREVIEW EMOJI
+   ============================================================ */
+
+.emoji-preview {
+  font-size: 2.4rem;
+  text-align: center;
+  padding: 0.9rem;
+  background: #e8e0c8;
+  border: 2px solid #8a8070;
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  margin-top: 0.7rem;
+  word-break: break-all;
+  line-height: 1.2;
+  user-select: text;
+  -webkit-user-select: text;
+  max-height: 60vh;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  color: #1c1c1c;
+}
+
+.emoji-preview.small { font-size: 0.7rem; text-align: left; line-height: 1.3; padding: 0.5rem; }
+
+/* ============================================================
+   STATS
+   ============================================================ */
+
+.stats {
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-top: 0.5rem;
+  color: #2a2a2a;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.stats b { color: #1a3a10; font-weight: 700; }
+
+/* ============================================================
+   CAJA DE PREVIEW
+   ============================================================ */
+
+.preview-box {
+  margin-top: 0.7rem;
+  padding: 0.6rem;
+  background: #e8e0c8;
+  border: 2px solid #8a8070;
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  text-align: center;
+}
+
+.preview-box img,
+.preview-box video {
+  max-width: 100%;
+  max-height: 50vh;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #605850;
+}
+
+.preview-box .info {
+  font-size: 0.82rem;
+  color: #4a4a44;
+  margin-top: 0.4rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* ============================================================
+   ITEMS DINÁMICOS
+   ============================================================ */
+
+.pack-item {
+  padding: 0.7rem;
+  background: #d8d0b8;
+  border: 2px solid #8a8070;
+  border-top-color: #f0e8d0;
+  border-left-color: #f0e8d0;
+  border-right-color: #605850;
+  border-bottom-color: #605850;
+  margin-bottom: 0.6rem;
+}
+
+.pack-item .row { margin-bottom: 0.5rem; }
+.pack-item .file-btn { min-width: 220px; }
+
+.pack-item .item-remove {
+  flex: 0 0 auto;
+  min-width: auto;
+  padding: 0.4rem 0.7rem;
+  background: #c8a098;
+  border: 2px solid #8a5048;
+  border-top-color: #e8c0b8;
+  border-left-color: #e8c0b8;
+  border-right-color: #604038;
+  border-bottom-color: #604038;
+  color: #4a1810;
+  font-weight: 700;
+  cursor: pointer;
+  transition: none;
+}
+
+.pack-item .item-remove:hover { background: #d0a8a0; }
+
+.pack-item .item-remove:active {
+  border-top-color: #604038;
+  border-left-color: #604038;
+  border-right-color: #e8c0b8;
+  border-bottom-color: #e8c0b8;
+  transform: translateY(1px);
+}
+
+/* ============================================================
+   TARJETAS DE ITEMS EXTRAÍDOS
+   ============================================================ */
+
+.item-card {
+  margin-top: 0.7rem;
+  padding: 0.7rem;
+  background: #d8d0b8;
+  border: 2px solid #8a8070;
+  border-top-color: #f0e8d0;
+  border-left-color: #f0e8d0;
+  border-right-color: #605850;
+  border-bottom-color: #605850;
+}
+
+.item-card .card-title {
+  font-size: 0.9rem;
+  color: #2a2a2a;
+  margin-bottom: 0.3rem;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.item-card .card-meta {
+  font-size: 0.78rem;
+  color: #4a4a44;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.item-card .card-body { font-size: 0.9rem; word-break: break-word; color: #1c1c1c; }
+
+.item-card .card-body img,
+.item-card .card-body video {
+  max-width: 100%;
+  max-height: 40vh;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #605850;
+}
+
+.item-card .card-body pre {
+  background: #e8e0c8;
+  padding: 0.6rem;
+  border: 2px solid #8a8070;
+  border-top-color: #605850;
+  border-left-color: #605850;
+  border-right-color: #f0e8d0;
+  border-bottom-color: #f0e8d0;
+  font-size: 0.82rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  color: #1c1c1c;
+}
+
+.item-card .card-body a { color: #1a3a6a; word-break: break-all; text-decoration: underline; }
+
+.item-card .card-status {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+}
+
+.item-card .card-status.ok { color: #1a3a10; }
+.item-card .card-status.err { color: #5a1810; }
+
+.item-card .card-dl {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #b8d8b0;
+  color: #1a3a10;
+  border: 2px solid #6a9a58;
+  border-top-color: #d8f0c8;
+  border-left-color: #d8f0c8;
+  border-right-color: #3a6a28;
+  border-bottom-color: #3a6a28;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  width: 100%;
+  min-height: 44px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  transition: none;
+}
+
+.item-card .card-dl:hover { background: #c8e0c0; }
+
+.item-card .card-dl:active {
+  border-top-color: #3a6a28;
+  border-left-color: #3a6a28;
+  border-right-color: #d8f0c8;
+  border-bottom-color: #d8f0c8;
+  background: #a8c8a0;
+  transform: translateY(1px);
+}
+
+/* ============================================================
+   HR
+   ============================================================ */
+
+hr {
+  border: none;
+  border-top: 2px solid #a89c84;
+  border-bottom: 2px solid #f0e8d0;
+  margin: 1.2rem 0;
+}
