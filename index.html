@@ -7,8 +7,35 @@
 <link rel="stylesheet" href="ytengoquesalir.css">
 </head>
 <body>
+  <div class="ventana" id="ventana">
+    <button class="cerrar" id="cerrar" title="Cerrar">x</button>
+    <div class="colores">
+    <span class="rojo"></span>
+    <span class="amarillo"></span>
+    <span class="verde"></span>
+    <span class="title"></span>
+  </div>
+    <div class="contenido">
+      <h1 class="titulo2">COMO USAR LA HERRAMIENTA</h1>
+      <h2 class="2"> Bien esto va a funcionar como un manual rapido</h2>
+      <h3 class="h"> <a>1.</a> donde dice Tipo seguido de archivo te permite elegir el archivo, texto o url que quieras esconder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</h3>
+        
+        <h3 class="h"> <a>2.</a> donde dice incertar texto, emoji o espacio podes insertar eso o eliminar y dejar vacio, ya que la erramienta soporta espacio nulo.</h3>
+    </h3>
+         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      
+      <h3 class="h"> <a>3.</a> Sin entrar en muchos detalles pdes apretar empaquetar y se va a mezclar el archivo y la fachada que elegiste.</h3>
+      
+         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    <h3 class="h"><a>4.</a> Luegi tenes opciones de cifrado etc que son más avanzadas pero inecesarias por ahora
+    </h3>
+  </div>
+</div> 
+  </div>
 
-<h1>LaMAO</h1>
+
+<h1>EMOJIFORJE</h1>
 <p class="sub">Ponga el gif, imagen, documento, texto o url dentro del emoji, texto o letra</p>
 
 <nav>
@@ -24,12 +51,12 @@
   </div>
 
  <div class="row">
-  <label>Cosa Base</label>
+  <label>insertar palabra, emoji o espacio vacio(la fachada)</label>
   <input accept=".png, .jpg"type="text" id="pack-emoji" value="Hola" maxlength="100" >
   
 </div>
   <div class="row">
-    <label>Cifrado</label>
+    <label>Elegir Cifrado(opcional)</label>
     <select id="pack-cifrado">
       <option value="none">Ninguno</option>
       <option value="antes">Solo datos</option>
@@ -104,7 +131,7 @@
 <!-- ============================== EXTRAER ============================== -->
 <section id="U">
   <div class="row">
-    <label>Emoji</label>
+    <label>Insertar paquete para extraer</label>
     <textarea id="unpack-str" placeholder="Pega aquí" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
   </div>
   <div class="row">
