@@ -1,3 +1,12 @@
+const win = document.getElementById('ventana');
+  const btn = document.getElementById('cerrar');
+
+  btn.addEventListener('click', () => {
+    win.classList.add('closed');
+    document.body.classList.add('window-closed');
+    setTimeout(() => win.remove(), 500);
+  });
+
 // ============================================================
 // CRC32
 // ============================================================
